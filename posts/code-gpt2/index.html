@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Aastha Singh">
+    <meta name="description" content="Auto-code generation using GPT-2    About GPT-2     GPT-2 stands for “Generative Predictive Transformer”. It is an open-source model trained on an over 1.5 Billion parameters for generating the next sequence of text, for a give sequence.
+  The GPT-2 has a remarkable and amazing competence to generate texts, much beyond the expectations of conventional language models.
+ “Too dangerous to be released.”    A phrase published the press statement by OpenAI to accompany their announcement of the release of their GPT-2 language model in February 2019.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Auto-code generation using GPT-2"/>
+<meta name="twitter:description" content="Auto-code generation using GPT-2    About GPT-2     GPT-2 stands for “Generative Predictive Transformer”. It is an open-source model trained on an over 1.5 Billion parameters for generating the next sequence of text, for a give sequence.
+  The GPT-2 has a remarkable and amazing competence to generate texts, much beyond the expectations of conventional language models.
+ “Too dangerous to be released.”    A phrase published the press statement by OpenAI to accompany their announcement of the release of their GPT-2 language model in February 2019."/>
+
+    <meta property="og:title" content="Auto-code generation using GPT-2" />
+<meta property="og:description" content="Auto-code generation using GPT-2    About GPT-2     GPT-2 stands for “Generative Predictive Transformer”. It is an open-source model trained on an over 1.5 Billion parameters for generating the next sequence of text, for a give sequence.
+  The GPT-2 has a remarkable and amazing competence to generate texts, much beyond the expectations of conventional language models.
+ “Too dangerous to be released.”    A phrase published the press statement by OpenAI to accompany their announcement of the release of their GPT-2 language model in February 2019." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aasthaengg.github.io/posts/code-gpt2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-16T00:00:00+00:00" />
+
+
+
+    <title>
+  Auto-code generation using GPT-2 · aasthasingh
+</title>
+
+    
+      <link rel="canonical" href="https://aasthaengg.github.io/posts/code-gpt2/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.fd5282c052ba60fd838d6ee7ed1db78ad94f1e62938c66b9fbccff89ab345cc0.css" integrity="sha256-/VKCwFK6YP2DjW7n7R23itlPHmKTjGa5&#43;8z/ias0XMA=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css" integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.89.4" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-dark">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      aasthasingh
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About Me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cv/">Resume</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://aasthaengg.github.io/posts/code-gpt2/">
+              Auto-code generation using GPT-2
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-06-16T00:00:00Z'>
+                June 16, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/deep-learning/">Deep Learning</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/natural-langauge-processing/">Natural Langauge Processing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/gpt-2/">GPT-2</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/auto-code-complete/">Auto Code Complete</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="auto-code-generation-using-gpt-2">
+  Auto-code generation using GPT-2
+  <a class="heading-link" href="#auto-code-generation-using-gpt-2">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<h2 id="about-gpt-2">
+  About GPT-2
+  <a class="heading-link" href="#about-gpt-2">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<blockquote>
+<p>GPT-2 stands for “Generative Predictive Transformer”. It is an open-source model trained on an over 1.5 Billion parameters for generating the next sequence of text, for a give sequence.</p>
+</blockquote>
+<blockquote>
+<p>The GPT-2 has a remarkable and amazing competence to generate texts, much beyond the expectations of conventional language models.</p>
+</blockquote>
+<h3 id="too-dangerous-to-be-released">
+  “Too dangerous to be released.”
+  <a class="heading-link" href="#too-dangerous-to-be-released">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><strong>A phrase published the press statement by OpenAI to accompany their announcement of the release of their GPT-2 language model in February 2019.</strong></p>
+<figure><img src="/images/gpt2.jpeg"/>
+</figure>
+
+<blockquote>
+<p><em>The threat of AI-driven misinformation has become a huge issue that remains unresolved in today’s post-factual information ecosystem, especially with the recent release of the more powerful GPT-3.</em></p>
+</blockquote>
+<figure><img src="/images/gpt2-perf.jpeg"/><figcaption>
+            <h4>Performance of GPT on different datasets</h4>
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>“Today, the United Nations has called for the immediate withdrawal of all nuclear weapons from the world.”</p>
+</blockquote>
+<p><em><strong>The sentence you just read was neither written by me, nor was it written by the editor. This sentence was written by GPT-2.</strong></em></p>
+<blockquote>
+<p><em>GPT-2 is a 1.5-bit transformer-based language model, trained in a database of 8 million web pages. It was trained to simply predict the next word in 40GB of Internet text. Due to some issues a very small model for researchers was released to experiment with.</em></p>
+</blockquote>
+<h2 id="working-mechanism-of-gpt-2">
+  Working mechanism of GPT-2
+  <a class="heading-link" href="#working-mechanism-of-gpt-2">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<figure><img src="/images/gpt2-working.png"/><figcaption>
+            <h4>Working of GPT-2</h4>
+        </figcaption>
+</figure>
+
+<ul>
+<li>
+<p><strong>Generative</strong>: This means that model was trained to predict the next token in a given sequence of tokens. The model is given a lot of raw text and then it is asked to generate more text using the statistical features which ofcourse involves implementation of different layers and mechanism such as RNN-LSTM and Attention mechanism.</p>
+</li>
+<li>
+<p><strong>Pre-trained</strong>: OpenAI trained a large and a powerful language transformer model to use it for tasks like summarization, neural machine translation, etc. Now, the model was trained on 40 GB of text, known as WebText.</p>
+</li>
+</ul>
+<figure><img src="/images/transformer-arch.png"/><figcaption>
+            <h4>Transformer Architecture</h4>
+        </figcaption>
+</figure>
+
+<ul>
+<li><strong>Transformer</strong>: The GPT-2 is build using layers of decoder transformer blocks.</li>
+</ul>
+<figure><img src="/images/gpt2-io.jpg"/><figcaption>
+            <h4>The text in blue is given as an input and the text in red is the predicted output</h4>
+        </figcaption>
+</figure>
+
+<p><strong>The GPT-2 architecture is based on the concepts of the transformers.</strong></p>
+<p>The mechanism on which GPT-2 works involves transformer based encoder decoder architecture to learn the input and output dependencies.</p>
+<p>To generate the next output in a given sequence the model need to have the previously generated data as an input.</p>
+<ul>
+<li>
+<p>The GPT-2 has a great ability to adapt to the context of the text and thus generates realistic and coherent output.</p>
+</li>
+<li>
+<p>The model works by adding each token to the sequence of inputs as it is created. In the next step, that new sequence becomes the model’s input. This is an idea called <strong>“auto-regression”</strong>. This is one of the ideas that made RNNs unreasonably effective.</p>
+</li>
+</ul>
+<h2 id="what-is-the-meaning-of-automatic-code-generation">
+  What is the meaning of automatic code generation?
+  <a class="heading-link" href="#what-is-the-meaning-of-automatic-code-generation">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p><strong>The automatic code generation is basically involves the completion of a sequeunce of codes based upon the previous inputs and past habits of the user.</strong></p>
+<ul>
+<li>
+<p>Many commercial platforms such as <strong>TabNine</strong> and <strong>Kite</strong> are already available in the market for this task. These both use GPT-2 to predict the next sequence of codes based upon the previous inputs provided by the users.</p>
+</li>
+<li>
+<p>Here is a short video which demonstrates the amazing capabilities of an automatics code generation process:</p>
+</li>
+</ul>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/twPtvZuBrAg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="steps-to-fine-tune-gpt-2-for-code-generation">
+  Steps to fine-tune GPT-2 for code generation
+  <a class="heading-link" href="#steps-to-fine-tune-gpt-2-for-code-generation">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="1-cloning-the-required-repositories">
+  1. Cloning the required repositories
+  <a class="heading-link" href="#1-cloning-the-required-repositories">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ul>
+<li>
+<p>Here, we are cloning the auto_coding repository which contains code and scripts to fine tune the GPT-2 model for automatic code generation.</p>
+</li>
+<li>
+<p>We need to provide the training examples in the form of scripts (Examples: Python, C, C++, Java, and Javascript).</p>
+</li>
+<li>
+<p>For fine-tuning our GPT-2 model we have used scripts from scikit-learn examples.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">rm -rf auto_encoding
+git clone https://github.com/aasthaengg/auto_coding
+<span class="nb">cd</span> auto_encoding
+pip install -r requirements.txt
+<span class="nb">cd</span> dataset
+git clone http://github.com/scikit-learn/examples.git
+python convert.py --segment_len <span class="m">256</span> --stride <span class="m">10</span> --dev_size 0.1
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-downloading-the-required-scripts">
+  2. Downloading the required scripts
+  <a class="heading-link" href="#2-downloading-the-required-scripts">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Now, we are downloading the <code>convert.py</code> script.</p>
+<p>This script contains the code to convert our examples into the training data in a format expected by our model.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">wget https://raw.githubusercontent.com/aasthaengg/auto_encoding/master/dataset/convert.py
+cp convert.py /content/auto_encoding/dataset/
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-navigating-to-the-required-directing">
+  3. Navigating to the required directing
+  <a class="heading-link" href="#3-navigating-to-the-required-directing">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Here, we are executing the convert.py script with <strong>segment length as 256, strides of 10, and development size of 10%</strong>.</p>
+<p>The 90% of the data will be used for training and the remaining 10% will be used for testing our model.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> auto_coding
+<span class="nb">cd</span> dataset
+python convert.py --segment_len <span class="m">256</span> --stride <span class="m">10</span> --dev_size 0.1
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-executing-the-training-scripts-and-selecting-the-model-as-distilgpt2">
+  4. Executing the training scripts and selecting the model as distilgpt2
+  <a class="heading-link" href="#4-executing-the-training-scripts-and-selecting-the-model-as-distilgpt2">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>We have different versions of models available for fine-tuning. Here, <strong>distilgpt2</strong> is selected to be fine-tuned. If one has enough computing resources and huge dataset then they may go for version with larger number of parameters.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /content/auto_encoding
+python train.py --model_select distilgpt2
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5-the-model-is-now-trained-lets-check-out-the-model">
+  5. The model is now trained. Let’s check out the model
+  <a class="heading-link" href="#5-the-model-is-now-trained-lets-check-out-the-model">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>After the training get’s completed we need to execute <code>interact.py</code> script. This script will run the model for testing purpose. The input needs to be provided and the model will predict the sequence.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">python interact.py
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="how-this-use-case-is-helping-tech-professionals">
+  How this use case is helping tech professionals?
+  <a class="heading-link" href="#how-this-use-case-is-helping-tech-professionals">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>-This solution is already being used in the industry. It allows developers to code faster with <strong>47% less keystrokes</strong>. This helps developers to become more productive.</p>
+<ul>
+<li>
+<p>Also, if a block of code is already written earlier then the user just need to make few strokes of identical words and the user will get an automatically completed block of codes.</p>
+</li>
+<li>
+<p>According, to some of the reviews, this has helped developers reduce a chunk of time, since they are writing just 70% to 80% codes and the rest 20% to 30% of the code is automatically generated.</p>
+</li>
+<li>
+<p>With all these advantages, the industry is also saving a significant amount of time.</p>
+</li>
+</ul>
+<h2 id="limitations-of-gpt-2">
+  Limitations of GPT-2
+  <a class="heading-link" href="#limitations-of-gpt-2">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ul>
+<li>
+<p>GPT-2 cannot be used handle complex and long language formations.</p>
+</li>
+<li>
+<p>If someone wants to generate a sequence of text related to a particular domain such as literature, finance, or medicine, then it won’t be able to perform well.</p>
+</li>
+<li>
+<p>There are certain limitations in terms of computing resources. To train such a huge model with billions of parameter we require very expensive computing resources to train so that the model can perform better.</p>
+</li>
+</ul>
+<h2 id="writers-perespective-on-gpt-architecture">
+  Writer’s perespective on GPT architecture
+  <a class="heading-link" href="#writers-perespective-on-gpt-architecture">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ul>
+<li>
+<p>The GPT is no doubt an amazing invention in the field of Natural Language Processing but it’s capabilities are still unknown since the complete pre-trained model was never released by OpenAI because of some serious threats.</p>
+</li>
+<li>
+<p>For performing this task on automatic code generation I used distil-GPT2 because of it’s small size and relatively less expensive model fine-tuning. We limited the sequence generation size to 15 for more effective and crisp prediction.</p>
+</li>
+<li>
+<p>If one has thought of using GPT-2 model with higher number of parameters then the size of sequence can be increased accordingly, keeping the computing resources in mind.</p>
+</li>
+</ul>
+<figure><img src="/images/fb-tweet.png"/><figcaption>
+            <h4>Here is a tweet from VP of AI at Facebook</h4>
+        </figcaption>
+</figure>
+
+<p>I’m quite aware of the additional risks, such as the possibility of GPT-3’s human-like text generation capacity being used for phishing, scamming, spamming, distributing false news, or other fraudulent actions. Hence, one should use such models keeping ethics in mind.</p>
+<p><strong>We should use artificial intelligence to make our lives better and not by doing anytype of criminal activities.</strong></p>
+<h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Congrats for making it all the way to the end of this blog! Thank you very much for taking the time to read this. I hope it was useful in getting you up and going.</p>
+<p><strong>Did you like GPT-2’s superpowers? Please let me know in the comments section where all thoughts and insights are eagerly appreciated.</strong></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2021
+     Aastha Singh 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

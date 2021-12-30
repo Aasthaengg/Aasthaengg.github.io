@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Aastha Singh">
+    <meta name="description" content="Harnessing the power of BERT embeddings    In this post, I’ll show you how BERT solves a basic text summarization and categorization issue.
+About BERT (Bidirectional Encoder Representations from Transformers)     BERT, in a nutshell, is a model that understands how to represent text. You feed it a sequence, and it scans left and right a number of times before producing a vector representation for each word as an output.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Key Feature extraction from classified summary of a Text file using BERT"/>
+<meta name="twitter:description" content="Harnessing the power of BERT embeddings    In this post, I’ll show you how BERT solves a basic text summarization and categorization issue.
+About BERT (Bidirectional Encoder Representations from Transformers)     BERT, in a nutshell, is a model that understands how to represent text. You feed it a sequence, and it scans left and right a number of times before producing a vector representation for each word as an output."/>
+
+    <meta property="og:title" content="Key Feature extraction from classified summary of a Text file using BERT" />
+<meta property="og:description" content="Harnessing the power of BERT embeddings    In this post, I’ll show you how BERT solves a basic text summarization and categorization issue.
+About BERT (Bidirectional Encoder Representations from Transformers)     BERT, in a nutshell, is a model that understands how to represent text. You feed it a sequence, and it scans left and right a number of times before producing a vector representation for each word as an output." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aasthaengg.github.io/posts/text-summary/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-31T00:00:00+00:00" />
+
+
+
+    <title>
+  Key Feature extraction from classified summary of a Text file using BERT · aasthasingh
+</title>
+
+    
+      <link rel="canonical" href="https://aasthaengg.github.io/posts/text-summary/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.fd5282c052ba60fd838d6ee7ed1db78ad94f1e62938c66b9fbccff89ab345cc0.css" integrity="sha256-/VKCwFK6YP2DjW7n7R23itlPHmKTjGa5&#43;8z/ias0XMA=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css" integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.89.4" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-dark">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      aasthasingh
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About Me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cv/">Resume</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://aasthaengg.github.io/posts/text-summary/">
+              Key Feature extraction from classified summary of a Text file using BERT
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-05-31T00:00:00Z'>
+                May 31, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              8-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/deep-learning/">Deep Learning</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/natural-langauge-processing/">Natural Langauge Processing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/bert/">BERT</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/huggingface/">HuggingFace</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/spacy/">spaCy</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/text-summarization/">Text Summarization</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/text-classification/">Text Classification</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <hr>
+<h2 id="harnessing-the-power-of-bert-embeddings">
+  Harnessing the power of BERT embeddings
+  <a class="heading-link" href="#harnessing-the-power-of-bert-embeddings">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>In this post, I’ll show you how BERT solves a basic text summarization and categorization issue.</p>
+<h3 id="about-bert-bidirectional-encoder-representations-from-transformers">
+  About BERT (Bidirectional Encoder Representations from Transformers)
+  <a class="heading-link" href="#about-bert-bidirectional-encoder-representations-from-transformers">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<blockquote>
+<p>BERT, in a nutshell, is a model that understands how to represent text. You feed it a sequence, and it scans left and right a number of times before producing a vector representation for each word as an output.
+BERT and other Transformer encoder architectures have been wildly successful on a variety of tasks in NLP (natural language processing).</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<hr>
+<h2 id="structure-of-bert">
+  Structure of BERT
+  <a class="heading-link" href="#structure-of-bert">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="1-the-bert-summarizer">
+  1. The BERT summarizer
+  <a class="heading-link" href="#1-the-bert-summarizer">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>It has 2 parts: a BERT encoder and a summarization classifier.
+In the encoder, we learn the interactions among tokens in our document while in the summarization classifier, we learn the interactions among sentences.
+To assign each sentence a label , we need to add a token [CLS] before each sentence indicating whether the sentence should be included in the final summary.</p>
+<figure><img src="/images/bert.png"/><figcaption>
+            <h4>BERT structure for summarization</h4>
+        </figcaption>
+</figure>
+
+<!-- raw HTML omitted -->
+<h3 id="2-the-bert-classifier">
+  2. The BERT Classifier
+  <a class="heading-link" href="#2-the-bert-classifier">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Input — there’s [CLS] token (classification) at the start of each sequence and a special [SEP] token that separates two parts of the input.
+Output — for classification, we use the output of the first token (the [CLS] token). For more complicated outputs, we can use all the other tokens output.</p>
+<figure><img src="/images/bert-2.jpeg"/>
+</figure>
+
+<!-- raw HTML omitted -->
+<hr>
+<h2 id="comparing-bert-with-xlnet--gpt-2-for-text-summarization-based-on-performance">
+  Comparing BERT with XLNet &amp; GPT-2, for Text Summarization based on performance
+  <a class="heading-link" href="#comparing-bert-with-xlnet--gpt-2-for-text-summarization-based-on-performance">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<figure><img src="/images/summary.png"/><figcaption>
+            <h4>Comparison after installing bert-extractive-summarizer, transformers==2.2.0, spaCy</h4>
+        </figcaption>
+</figure>
+
+<!-- raw HTML omitted -->
+<p><em>Results</em></p>
+<ul>
+<li>Terms of performance — GPT-2-medium is the best</li>
+<li>Terms of time taken — XLNet (11 s) GPT-2 medium (35s) Bert (30s)</li>
+<li>Terms of ease of use — BERT</li>
+</ul>
+<h3 id="step-1-choosing-the-bert-model">
+  Step 1: Choosing the BERT Model
+  <a class="heading-link" href="#step-1-choosing-the-bert-model">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>There are multiple BERT models available.</p>
+<ul>
+<li><a href="https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3">BERT-Base</a></li>
+<li><a href="https://tfhub.dev/google/collections/bert/1">Small BERTs</a></li>
+<li><a href="https://tfhub.dev/google/collections/albert/1">ALBERT</a></li>
+<li><a href="https://tfhub.dev/google/collections/experts/bert/1">BERT Experts</a></li>
+<li><a href="https://tfhub.dev/google/collections/electra/1">Electra</a></li>
+</ul>
+<blockquote>
+<p>Final model used DistilBERT. It is a small, fast, cheap and light Transformer model trained by distilling BERT base.
+It has 40% less parameters than bert-base-uncased, runs 60% faster while preserving over 95% of BERT’s performances as measured on the GLUE language understanding benchmark.</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<h3 id="step-2-text-classification-using-bert">
+  Step 2: Text classification using BERT
+  <a class="heading-link" href="#step-2-text-classification-using-bert">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Your mind must be racing with all of the possibilities that BERT has opened up. We can use BERT’s vast knowledge repository in a myriad of contexts for our NLP applications!</p>
+<h3 id="1-lets-setup">
+  1. Let’s Setup!
+  <a class="heading-link" href="#1-lets-setup">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>I have used the AdamW optimizer from tensorflow/models.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pip install bert-for-tf2
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">import tensorflow as tf
+from tensorflow.layers.keras import Dense, Input, Dropout
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.models import Model
+from tensorflow.keras.callbacks import ModelCheckpoint
+import tensorflow_hub as hub
+from bert import bert_tokenization
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Importing and Preprocessing the Dataset</li>
+</ol>
+<p>Source: <a href="https://www.kaggle.com/cfpb/us-consumer-finance-complaints">Kaggle</a></p>
+<blockquote>
+<p>Dataset consistes of consumers’ complaints sent by the CFPB about financial products and services to companies for response to help improve the financial marketplace.</p>
+</blockquote>
+<figure><img src="/images/load-dataset.png"/><figcaption>
+            <h4>Loading the dataset</h4>
+        </figcaption>
+</figure>
+
+<!-- raw HTML omitted -->
+<p><em>2.1. Feature Selection</em></p>
+<p>I have selected the columns that were directly related to resloving the issues and classifying them into the product classes</p>
+<p>The output below shows that our dataset has 555,957 rows and 18 columns.</p>
+<figure><img src="/images/feature-1.png"/><figcaption>
+            <h4>Selected 2 out of 18 features.</h4>
+        </figcaption>
+</figure>
+
+<p>Selected 2 out of 18 features.</p>
+<figure><img src="/images/feature-2.png"/><figcaption>
+            <h4>Issues Classified into 10 product categories</h4>
+        </figcaption>
+</figure>
+
+<p><em>2.2. Label encoding</em></p>
+<p>I have label encoded the Product column to convert the text format into label format using LabelEncoder.</p>
+<pre><code>LabelEncoder: It allows to assign ordinal levels to categorical data.
+
+fit_transform(y): Fit label encoder and return encoded labels.
+</code></pre>
+<figure><img src="/images/label-encoding.png"/><figcaption>
+            <h4>Label Encoding</h4>
+        </figcaption>
+</figure>
+
+<!-- raw HTML omitted -->
+<h3 id="3-creating-a-bert-tokenizer">
+  3. Creating a BERT Tokenizer
+  <a class="heading-link" href="#3-creating-a-bert-tokenizer">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ul>
+<li>
+<p>Text inputs need to be transformed to numeric token ids and arranged in several Tensors before being input to BERT.</p>
+</li>
+<li>
+<p>Tokenization refers to dividing a sentence into individual words. To tokenize our text, we will be using the BERT tokenizer.</p>
+</li>
+</ul>
+<h3 id="importing-the-pre-trained-model-and-tokenizer-which-is-specific-to-bert">
+  Importing the pre-trained model and tokenizer which is specific to BERT
+  <a class="heading-link" href="#importing-the-pre-trained-model-and-tokenizer-which-is-specific-to-bert">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ul>
+<li>Create a BERT embedding layer by importing the BERT model from <code>hub.KerasLayer</code></li>
+<li>Retrieve the BERT vocabulary file in the form a numpy array.</li>
+<li>Set the text to lowercase and pass our vocab_file and do_lower variables to the BertTokenizer object.</li>
+<li>Initialise tokenizer_for_bert.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">bert_layer</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">KerasLayer</span><span class="p">(</span><span class="s2">&#34;https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1&#34;</span><span class="p">,</span> <span class="n">trainable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;keras_bert_layer&#39;</span>
+<span class="p">)</span>
+
+<span class="n">vocab_file</span> <span class="o">=</span> <span class="n">bert_layer</span><span class="o">.</span><span class="n">resolved_object</span><span class="o">.</span><span class="n">vocab_file</span><span class="o">.</span><span class="n">asset_path</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">do_lower_case</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">tokenizer_for_bert</span> <span class="o">=</span> <span class="n">bert_tokenization</span><span class="o">.</span><span class="n">FullTokenizer</span><span class="p">(</span><span class="n">vocab_file</span><span class="p">,</span> <span class="n">do_lower_case</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">print<span class="o">(</span><span class="s2">&#34;The length of the vocab in our tokenizer is: &#34;</span>, len<span class="o">(</span>tokenizer_for_bert.vocab<span class="o">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">The length of the vocab in our tokenizer is: <span class="m">30522</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-defining-helper-function-for-text-preprocessing">
+  4. Defining helper function for text preprocessing
+  <a class="heading-link" href="#4-defining-helper-function-for-text-preprocessing">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ul>
+<li>The encode_text function is converting raw text data into encoded text(‘CLS’+token+ ‘SEP’)which is fitted and converted to token</li>
+<li>To create sentences of equal length, I have padded the <strong>token_ids</strong>, <strong>mask_ids</strong>, <strong>segment_ids</strong> to truncate the tokens with the provided batch size.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">encode_text</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">tokenizer_for_bert</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
+    <span class="n">all_token_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">all_masks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">all_segments</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">:</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenizer_for_bert</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)[:</span><span class="n">max_len</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">input_sequence</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;[CLS]&#34;</span><span class="p">]</span> <span class="o">+</span> <span class="n">tokens</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&#34;[SEP]&#34;</span><span class="p">]</span>
+        <span class="n">padd_eln</span> <span class="o">=</span> <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_sequence</span><span class="p">)</span>
+        <span class="n">token_ids</span> <span class="o">=</span> <span class="n">tokenzier_for_bert</span><span class="o">.</span><span class="n">convert_tokens_to_ids</span><span class="p">(</span><span class="n">input_sequence</span><span class="p">)</span>
+        <span class="n">token_ids</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">pad_len</span>
+        <span class="n">pad_masks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">inpu_sequence</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">pad_len</span>
+        <span class="n">segment_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">max_len</span>
+
+        <span class="n">all_token_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token_ids</span><span class="p">)</span>
+        <span class="n">all_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pad_masks</span><span class="p">)</span>
+        <span class="n">all_segments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">segment_ids</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">all_token_ids</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">all_masks</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">all_sengments</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>The model will take strings as input, and return appropriately formatted objects which can be passed to BERT.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">test_text</span> <span class="o">=</span> <span class="s2">&#34;There was a blast in Lebanon the previous day. 130 people are reported to be dead.&#34;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Test text after tokenization: &#34;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;[CLS]&#34;</span><span class="p">]</span> <span class="o">+</span> <span class="n">tokenizer_for_bert</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&#34;[SEP]&#34;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Test text after encoding: &#34;</span><span class="p">,</span> <span class="n">encode_text</span><span class="p">([</span><span class="n">test_text</span><span class="p">],</span> <span class="n">tokenizer_for_bert</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">Test text after tokenization: <span class="o">[</span><span class="s1">&#39;[CLS]&#39;</span>, <span class="s1">&#39;there&#39;</span>, <span class="s1">&#39;was&#39;</span>, <span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;blast&#39;</span>, <span class="s1">&#39;in&#39;</span>, <span class="s1">&#39;lebanon&#39;</span>, <span class="s1">&#39;the&#39;</span>, <span class="s1">&#39;previous&#39;</span>, <span class="s1">&#39;day&#39;</span>, <span class="s1">&#39;.&#39;</span>, <span class="s1">&#39;130&#39;</span>, <span class="s1">&#39;people&#39;</span>, <span class="s1">&#39;are&#39;</span>, <span class="s1">&#39;reported&#39;</span>, <span class="s1">&#39;to&#39;</span>, <span class="s1">&#39;be&#39;</span>, <span class="s1">&#39;dead&#39;</span>, <span class="s1">&#39;.&#39;</span>, <span class="s1">&#39;[SEP]&#39;</span><span class="o">]</span>
+Test text after encofing: <span class="o">(</span>array<span class="o">([[</span> 101, 2045, 2001, 1037, 8479, 1999, 102<span class="o">]]))</span>, array<span class="o">([[</span>1, 1, 1, 1, 1, 1, 1<span class="o">]])</span>, array<span class="o">([[</span>0, 0, 0, 0, 0, 0, 0<span class="o">]])</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Since this text preprocessor is a TensorFlow model, It can be included in any model directly.</p>
+</blockquote>
+<h3 id="5-defining-the-model">
+  5. Defining the Model
+  <a class="heading-link" href="#5-defining-the-model">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Create a very simple fine-tuned model, with the preprocessing model, the selected BERT model, one Dense and a Dropout layer for regularization.
+As you can see, there are 3 outputs from the preprocessing that a BERT model would use (input_words_id, input_mask and segment_ids).</p>
+<p><em>Batch size = 40 implies that if the input is &gt;than 40, it will be truncated to 40 tokens and if the input is &lt;40 it will pad it to 40 tokens.</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">bert_model</span><span class="p">(</span><span class="n">bert_layer</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
+    <span class="c1"># Input to bert layer</span>
+    <span class="n">input_word_ids</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">max_len</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;input_words_ids&#34;</span><span class="p">)</span>
+    <span class="n">input_mask</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">max_len</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;input_mask&#34;</span><span class="p">)</span>
+    <span class="n">segment_ids</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">max_len</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&#34;segment_ids&#34;</span><span class="p">)</span>
+
+    <span class="c1"># Output from bert layer</span>
+    <span class="n">bert_layer_out</span> <span class="o">=</span> <span class="n">bert_layer</span><span class="p">([</span><span class="n">input_word_ids</span><span class="p">,</span> <span class="n">input_mask</span><span class="p">,</span> <span class="n">segment_ids</span><span class="p">])</span>
+
+    <span class="c1"># Extract Embedding for CLS token</span>
+    <span class="n">cls_out</span> <span class="o">=</span> <span class="n">bert_layer_out</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span><span class="mi">0</span><span class="p">,:]</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">cls_out</span><span class="p">)</span>
+
+    <span class="c1"># Model creation using inputs and output</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">input_word_ids</span><span class="p">,</span> <span class="n">input_masl</span><span class="p">,</span> <span class="n">segment_ids</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;deeplearning_bert_model&#39;</span><span class="p">)</span>
+
+    <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;sparse_categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="6-converting-the-train-text-in-encoded-format">
+  6. Converting the train text in encoded format
+  <a class="heading-link" href="#6-converting-the-train-text-in-encoded-format">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">train_input</span> <span class="o">=</span> <span class="n">encode_text</span><span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="s2">&#34;issue&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">tokenizer_for_bert</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="n">max_len</span><span class="p">)</span>
+
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[</span><span class="s2">&#34;product&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="7-fine-tuning-the-model-for-text-classification">
+  7. Fine-Tuning the model for text classification
+  <a class="heading-link" href="#7-fine-tuning-the-model-for-text-classification">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Fine-tuning follows the optimizer set-up from BERT pre-training: It uses the <strong>AdamW</strong> optimizer.</p>
+<blockquote>
+<p>BERT was originally trained with: the “Adaptive Moments” (Adam). This optimizer minimizes the prediction loss and does regularization by weight decay.</p>
+</blockquote>
+<p>To increase the accuracy, increase the no. of epochs</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Modify as needed</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span> <span class="c1"># Modify as needed</span>
+<span class="n">train_history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><!-- raw HTML omitted -->
+<h2 id="building-pipeline">
+  Building Pipeline
+  <a class="heading-link" href="#building-pipeline">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<blockquote>
+<p>Flow of Pipeline -
+Text Summarization using BERT&gt;Text Classification using BERT &gt;Name Entity Recognition using spaCy</p>
+</blockquote>
+<p><strong>For Text Summarization:</strong></p>
+<p>Extractive, abstractive, and mixed summarization strategies are most commonly used.</p>
+<ul>
+<li>Extractive strategies — It selects the top N sentences that best represent the article’s important themes.</li>
+<li>Abstractive summaries — It attempts to rephrase the article’s main ideas in new words.</li>
+</ul>
+<h3 id="1-installing-bert-extractive-summarizer">
+  1. Installing bert-extractive-summarizer
+  <a class="heading-link" href="#1-installing-bert-extractive-summarizer">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<h3 id="2-installing-spacy--the-smallest-english-language-model-takes-only-a-moment-to-download-as-its-around-11mb">
+  2. Installing spaCy : The smallest English language model takes only a moment to download as it’s around 11MB
+  <a class="heading-link" href="#2-installing-spacy--the-smallest-english-language-model-takes-only-a-moment-to-download-as-its-around-11mb">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<blockquote>
+<p>This tool utilizes the HuggingFace Pytorch transformers library to run extractive summarizations.</p>
+</blockquote>
+<blockquote>
+<p><strong>This works by first embedding the sentences, then running a clustering algorithm, finding the sentences that are closest to the cluster’s centroids</strong></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">!pip install bert-extractive-summarizer
+!pip install <span class="nv">transformers</span><span class="o">==</span>2.2.0
+!pip install spacy
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">summarizer</span> <span class="kn">import</span> <span class="n">Summarizer</span><span class="p">,</span> <span class="n">TransformerSummarizer</span>
+<span class="err">!</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">spacy</span> <span class="n">download</span> <span class="n">en_core_web_sm</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&#34;import tensorflow as tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.layers.keras</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Dropout</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">ModelCheckpoint</span>
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">hub</span>
+<span class="kn">from</span> <span class="nn">bert</span> <span class="kn">import</span> <span class="n">bert_tokenization</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="n">Importing</span> <span class="ow">and</span> <span class="n">Preprocessing</span> <span class="n">the</span> <span class="n">Dataseten_core_web_sm</span><span class="s2">&#34;)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-defining-the-pipeline-function">
+  3. Defining the pipeline function
+  <a class="heading-link" href="#3-defining-the-pipeline-function">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">text_summarization_classification</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="n">bert_model</span> <span class="o">=</span> <span class="n">Summarizer</span><span class="p">()</span>
+    <span class="n">bert_summary</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">jon</span><span class="p">(</span><span class="n">bert_model</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">60</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">bert_summary</span><span class="p">)</span>
+
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">encode_text</span><span class="p">([</span><span class="n">text</span><span class="p">],</span> <span class="n">tokenizer_for_bert</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">summary</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="testing-the-model">
+  Testing the model
+  <a class="heading-link" href="#testing-the-model">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Passing input to the trained model to summarize and then classify the text.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;A mortgage is a loan that the borrower uses to purchase or maintain a property.&#39;</span>
+
+<span class="n">prediction</span><span class="p">,</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">text_summarization_classification</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="key-feature-extraction-using-spacyner">
+  Key Feature Extraction using spaCyNER
+  <a class="heading-link" href="#key-feature-extraction-using-spacyner">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p><strong>About spaCy Named Entity Recognition</strong></p>
+<blockquote>
+<p>spaCy’s Named Entity Recognition (NER ) locates and identifies the named entities present in unstructured text into the standard categories such as person names, locations, organizations, time expressions, quantities, monetary values, percentage, codes etc.</p>
+</blockquote>
+<figure><img src="/images/spacyner.png"/><figcaption>
+            <h4>spaCy NER</h4>
+        </figcaption>
+</figure>
+
+<h3 id="accessing-the-entity-annotations-on-the-generated-summary-of-the-text">
+  Accessing the Entity Annotations on the generated summary of the text
+  <a class="heading-link" href="#accessing-the-entity-annotations-on-the-generated-summary-of-the-text">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">bert_model</span> <span class="o">=</span> <span class="n">Summarizer</span><span class="p">()</span>
+<span class="n">bert_summary</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bert_model</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">60</span><span class="p">))</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">bert_summary</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ent</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ent</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">ent</span><span class="o">.</span><span class="n">start_char</span><span class="p">,</span> <span class="n">ent</span><span class="o">.</span><span class="n">end_char</span><span class="p">,</span> <span class="n">ent</span><span class="o">.</span><span class="n">label_</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Doc.ents</strong> are token spans with their own set of annotations</p>
+<figure><img src="/images/entity-annotations.png"/><figcaption>
+            <h4>Entity Annotations</h4>
+        </figcaption>
+</figure>
+
+<h2 id="further-thoughts">
+  Further thoughts
+  <a class="heading-link" href="#further-thoughts">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>For a much faster approach, I can directly extract the key features by extracting <strong>noun phrases</strong> from the generated text summary using spaCy.</p>
+<p>This would help to get the <strong>most common nouns</strong>, <strong>verbs</strong>, <strong>adverbs</strong> and so on by counting frequency of all the tokens in the text file.</p>
+<p>Feel free to play around with spaCy as there is a lot more built-in functionality available. I will be doing this in my next blog. Stay connected!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2021
+     Aastha Singh 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

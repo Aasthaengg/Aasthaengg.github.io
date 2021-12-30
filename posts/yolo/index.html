@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Aastha Singh">
+    <meta name="description" content="YOLO: You Only Look Once     The “You Only Look Once,” or YOLO, family of models are a series of end-to-end deep learning models designed for fast object detection, developed by Joseph Redmon, et al. and first described in the 2015 paper titled “You Only Look Once: Unified, Real-Time Object Detection.”
+ What is YOLO object detection?    YOLO is a deep learning based approach of object detection.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="YOLO: You Only Look Once"/>
+<meta name="twitter:description" content="YOLO: You Only Look Once     The “You Only Look Once,” or YOLO, family of models are a series of end-to-end deep learning models designed for fast object detection, developed by Joseph Redmon, et al. and first described in the 2015 paper titled “You Only Look Once: Unified, Real-Time Object Detection.”
+ What is YOLO object detection?    YOLO is a deep learning based approach of object detection."/>
+
+    <meta property="og:title" content="YOLO: You Only Look Once" />
+<meta property="og:description" content="YOLO: You Only Look Once     The “You Only Look Once,” or YOLO, family of models are a series of end-to-end deep learning models designed for fast object detection, developed by Joseph Redmon, et al. and first described in the 2015 paper titled “You Only Look Once: Unified, Real-Time Object Detection.”
+ What is YOLO object detection?    YOLO is a deep learning based approach of object detection." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aasthaengg.github.io/posts/yolo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-29T00:00:00+00:00" />
+
+
+
+    <title>
+  YOLO: You Only Look Once · aasthasingh
+</title>
+
+    
+      <link rel="canonical" href="https://aasthaengg.github.io/posts/yolo/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.fd5282c052ba60fd838d6ee7ed1db78ad94f1e62938c66b9fbccff89ab345cc0.css" integrity="sha256-/VKCwFK6YP2DjW7n7R23itlPHmKTjGa5&#43;8z/ias0XMA=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css" integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.89.4" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-dark">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      aasthasingh
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About Me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cv/">Resume</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://aasthaengg.github.io/posts/yolo/">
+              YOLO: You Only Look Once
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-05-29T00:00:00Z'>
+                May 29, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/deep-learning/">Deep Learning</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/computer-vision/">Computer Vision</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/object-detection/">Object Detection</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="yolo-you-only-look-once">
+  YOLO: You Only Look Once
+  <a class="heading-link" href="#yolo-you-only-look-once">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p>The “You Only Look Once,” or YOLO, family of models are a series of end-to-end deep learning models designed for fast object detection, developed by Joseph Redmon, et al. and first described in the 2015 paper titled <a href="https://arxiv.org/abs/1506.02640">“You Only Look Once: Unified, Real-Time Object Detection.”</a></p>
+</blockquote>
+<h2 id="what-is-yolo-object-detection">
+  What is YOLO object detection?
+  <a class="heading-link" href="#what-is-yolo-object-detection">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>YOLO is a deep learning based approach of object detection. There are two types of object detection algorithm in the field on deep learning. These two types are:</p>
+<figure><img src="/images/rcnn.jpg"/><figcaption>
+            <h4>Detection using R-CNN (A classification based algorithm)</h4>
+        </figcaption>
+</figure>
+
+<ol>
+<li><strong>Classification based algorithms</strong> - There are two steps involved in these types of algorithms.</li>
+</ol>
+<ul>
+<li>
+<p>Step1: involves selecting a group of Region of Interest (ROI) in the images where the chances that object is present are high.</p>
+</li>
+<li>
+<p>Step2: involves application of Convolutional Neural Networks (CNN) to the regions selected in first step to detect the presence of an object.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Problem associated with these types of algorithms is that we need to execute a detector in each of the ROI, and this makes the process of object detection very slow and highly expensive in terms of computation.</strong></p>
+</blockquote>
+<ol start="2">
+<li><strong>Regression-based algorithms</strong> - These types of algorithms are faster then the above algorithm. There is no selection of the ROI, instead the bounding boxes and the labels are predicted for the whole image at once. This makes the detection faster than classification algorithms. One of the most famous type of regression algorithms is YOLO (You Only Look Once). Since, the inception of YOLO, it has been used in healthcare,self-driving cars, etc.</li>
+</ol>
+<figure><img src="/images/yolo.png"/><figcaption>
+            <h4>Detection using YOLO (A regression based algorithm)</h4>
+        </figcaption>
+</figure>
+
+<h2 id="working-of-yolo-a-quick-walkthrough">
+  Working of YOLO: A quick walkthrough
+  <a class="heading-link" href="#working-of-yolo-a-quick-walkthrough">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<blockquote>
+<p>Why YOLO is such an useful algorithm!</p>
+</blockquote>
+<ul>
+<li>YOLO first takes image as an input</li>
+<li>The framework divides a photo into a grid of NxN grids. (Let’s us suppose a 3x3 grid)</li>
+</ul>
+<figure><img src="/images/yolo-working.jpg"/>
+</figure>
+
+<ul>
+<li>Now, on each grid the task of image classification and localization is applied.</li>
+<li>Then, the YOLO algorithm will predict the bounding boxes and the class probabilities of each objects respectively.</li>
+</ul>
+<h2 id="training-yolo-on-a-custom-dataset">
+  Training YOLO on a custom dataset
+  <a class="heading-link" href="#training-yolo-on-a-custom-dataset">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<blockquote>
+<p>We will follow the following steps to train YOLO v5 model (PyTorch version) on a custom dataset.</p>
+</blockquote>
+<blockquote>
+<p>Dataset: The dataset we have chosed here is a blood object detection dataset</p>
+</blockquote>
+<h3 id="cloning-yolov5-repository">
+  Cloning YOLOv5 repository
+  <a class="heading-link" href="#cloning-yolov5-repository">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<figure><img src="/images/yolo-1.png"/>
+</figure>
+
+<h3 id="installing-all-the-necessary-dependencies">
+  Installing all the necessary dependencies
+  <a class="heading-link" href="#installing-all-the-necessary-dependencies">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<figure><img src="/images/yolo-2.png"/>
+</figure>
+
+<h3 id="loading-the-custom-dataset-annotated-on-roboflow-in-yolo-v5-pytorch-format">
+  Loading the custom dataset annotated on Roboflow in YOLO v5 (PyTorch) format.
+  <a class="heading-link" href="#loading-the-custom-dataset-annotated-on-roboflow-in-yolo-v5-pytorch-format">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<figure><img src="/images/yolo-3.png"/>
+</figure>
+
+<blockquote>
+<p>This is the YAML file which Roboflow wrote for public to use their platform to create annotated dataset and then train YOLO effectively.</p>
+</blockquote>
+<figure><img src="/images/yolo-4.png"/>
+</figure>
+
+<p>The dataset contains 874 images and the objects to be detected are ‘Platelets’, ‘WBC’, and ‘RBC’ in blood microscopic images.</p>
+<h3 id="defining-model-configuration-and-architecture">
+  Defining model configuration and architecture
+  <a class="heading-link" href="#defining-model-configuration-and-architecture">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<figure><img src="/images/yolo-5.png"/>
+</figure>
+
+<h3 id="customizing-ipython-writefile-so-we-can-write-variables">
+  Customizing iPython writefile so we can write variables
+  <a class="heading-link" href="#customizing-ipython-writefile-so-we-can-write-variables">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<figure><img src="/images/yolo-6.png"/>
+</figure>
+
+<figure><img src="/images/yolo-7.png"/>
+</figure>
+
+<blockquote>
+<p>Using <code>nvidia-smi</code> to retrieve gpu info and stats. Here, we are using Google Colaboratory so we have been provided with Nvidia Tesla T4</p>
+</blockquote>
+<figure><img src="/images/yolo-8.png"/>
+</figure>
+
+<h3 id="model-training-and-evaluation">
+  Model Training and Evaluation
+  <a class="heading-link" href="#model-training-and-evaluation">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Now, we will be starting the model training and evaluation. For evaluation we will be using <strong>Mean Average Precision <a href="mailto:mAP@0.5">mAP@0.5</a></strong>.</p>
+<figure><img src="/images/yolo-9.png"/>
+</figure>
+
+<p><strong>Let’s have a quick of our ground truth data</strong></p>
+<figure><img src="/images/yolo-10.png"/>
+</figure>
+
+<p><strong>Printing the augmented training data</strong></p>
+<figure><img src="/images/yolo-11.png"/>
+</figure>
+
+<p><strong>Printing the evaluation results</strong></p>
+<figure><img src="/images/yolo-12.png"/>
+</figure>
+
+<h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>I hoped you enjoyed training custom YOLO v5 object detector!
+YOLO v5 is lightweight and extremely easy to use. YOLO v5 trains quickly, inferences quickly, and performs well.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2021
+     Aastha Singh 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

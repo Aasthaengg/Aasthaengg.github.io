@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer Vision on aasthasingh</title>
+    <link>https://aasthaengg.github.io/tags/computer-vision/</link>
+    <description>Recent content in Computer Vision on aasthasingh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 29 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://aasthaengg.github.io/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YOLO: You Only Look Once</title>
+      <link>https://aasthaengg.github.io/posts/yolo/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/posts/yolo/</guid>
+      <description>YOLO: You Only Look Once     The “You Only Look Once,” or YOLO, family of models are a series of end-to-end deep learning models designed for fast object detection, developed by Joseph Redmon, et al. and first described in the 2015 paper titled “You Only Look Once: Unified, Real-Time Object Detection.”
+ What is YOLO object detection?    YOLO is a deep learning based approach of object detection.</description>
+    </item>
+    
+  </channel>
+</rss>

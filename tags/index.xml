@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on aasthasingh</title>
+    <link>https://aasthaengg.github.io/tags/</link>
+    <description>Recent content in Tags on aasthasingh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 05 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://aasthaengg.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Auto Code Complete</title>
+      <link>https://aasthaengg.github.io/tags/auto-code-complete/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/auto-code-complete/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://aasthaengg.github.io/tags/deep-learning/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GPT-3</title>
+      <link>https://aasthaengg.github.io/tags/gpt-3/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/gpt-3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Natural Langauge Processing</title>
+      <link>https://aasthaengg.github.io/tags/natural-langauge-processing/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/natural-langauge-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://aasthaengg.github.io/tags/python/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BERT</title>
+      <link>https://aasthaengg.github.io/tags/bert/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/bert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RoBERTa</title>
+      <link>https://aasthaengg.github.io/tags/roberta/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/roberta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GPT-2</title>
+      <link>https://aasthaengg.github.io/tags/gpt-2/</link>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/gpt-2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HuggingFace</title>
+      <link>https://aasthaengg.github.io/tags/huggingface/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/huggingface/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NumPy</title>
+      <link>https://aasthaengg.github.io/tags/numpy/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/numpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spaCy</title>
+      <link>https://aasthaengg.github.io/tags/spacy/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/spacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Text Classification</title>
+      <link>https://aasthaengg.github.io/tags/text-classification/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/text-classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Text Summarization</title>
+      <link>https://aasthaengg.github.io/tags/text-summarization/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/text-summarization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computer Vision</title>
+      <link>https://aasthaengg.github.io/tags/computer-vision/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/computer-vision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Object Detection</title>
+      <link>https://aasthaengg.github.io/tags/object-detection/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/tags/object-detection/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

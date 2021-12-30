@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Aastha Singh">
+    <meta name="description" content="Speed up the development with advanced pair programming: GitHub Copilot     Something Microsoft couldn’t get their hands off of, and you probably won’t be able to either!
+ Hello technophiles, Welcome to my blog! Read along to know political, technical, and public understandings and viewpoints on the great magical AI algorithm launched this week.
+ “Anyone who puts in money at OpenAI can only expect returns 100 times their investment”">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Speed up the development with advanced pair programming: GitHub Copilot"/>
+<meta name="twitter:description" content="Speed up the development with advanced pair programming: GitHub Copilot     Something Microsoft couldn’t get their hands off of, and you probably won’t be able to either!
+ Hello technophiles, Welcome to my blog! Read along to know political, technical, and public understandings and viewpoints on the great magical AI algorithm launched this week.
+ “Anyone who puts in money at OpenAI can only expect returns 100 times their investment”"/>
+
+    <meta property="og:title" content="Speed up the development with advanced pair programming: GitHub Copilot" />
+<meta property="og:description" content="Speed up the development with advanced pair programming: GitHub Copilot     Something Microsoft couldn’t get their hands off of, and you probably won’t be able to either!
+ Hello technophiles, Welcome to my blog! Read along to know political, technical, and public understandings and viewpoints on the great magical AI algorithm launched this week.
+ “Anyone who puts in money at OpenAI can only expect returns 100 times their investment”" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aasthaengg.github.io/posts/github-copilot/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-05T00:00:00+00:00" />
+
+
+
+    <title>
+  Speed up the development with advanced pair programming: GitHub Copilot · aasthasingh
+</title>
+
+    
+      <link rel="canonical" href="https://aasthaengg.github.io/posts/github-copilot/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.fd5282c052ba60fd838d6ee7ed1db78ad94f1e62938c66b9fbccff89ab345cc0.css" integrity="sha256-/VKCwFK6YP2DjW7n7R23itlPHmKTjGa5&#43;8z/ias0XMA=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css" integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.89.4" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-dark">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      aasthasingh
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About Me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cv/">Resume</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://aasthaengg.github.io/posts/github-copilot/">
+              Speed up the development with advanced pair programming: GitHub Copilot
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-07-05T00:00:00Z'>
+                July 5, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              10-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/deep-learning/">Deep Learning</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/natural-langauge-processing/">Natural Langauge Processing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/python/">Python</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/gpt-3/">GPT-3</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/auto-code-complete/">Auto Code Complete</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="speed-up-the-development-with-advanced-pair-programming-github-copilot">
+  Speed up the development with advanced pair programming: GitHub Copilot
+  <a class="heading-link" href="#speed-up-the-development-with-advanced-pair-programming-github-copilot">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p>Something Microsoft couldn’t get their hands off of, and you probably won’t be able to either!</p>
+</blockquote>
+<p><strong>Hello technophiles, Welcome to my blog! Read along to know political, technical, and public understandings and viewpoints on the great magical AI algorithm launched this week.</strong></p>
+<figure><img src="/images/openai.jpeg"/>
+</figure>
+
+<p><strong>“Anyone who puts in money at OpenAI can only expect returns 100 times their investment”</strong></p>
+<h2 id="lets-talk-about-microsoft-investment-of-1-billion-in-openai">
+  Let’s talk about Microsoft investment of $1 billion in OpenAI
+  <a class="heading-link" href="#lets-talk-about-microsoft-investment-of-1-billion-in-openai">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>OpenAI, a San Francisco-based research lab founded by Silicon Valley luminaries, including Elon Musk and Sam Altman, that’s dedicated to creating artificial general intelligence (AGI).
+In order to restrain the greed of investors, OpenAI operates as a <strong>capped-profit entity</strong>.</p>
+<figure><img src="/images/sam-satya.jpeg"/><figcaption>
+            <h4>The CEO moment: Sam Altman and Satya Nadella</h4>
+        </figcaption>
+</figure>
+
+<p>The investment has made Microsoft the “exclusive” provider of cloud computing services to OpenAI, and the two companies will work together to develop new technologies, to explore artificial intelligence’s <em>magic formula</em>.</p>
+<h2 id="gpt--3-and-capitalism-could-there-be-a-boom-followed-by-a-bust">
+  GPT -3 and capitalism; Could there be a boom followed by a bust?
+  <a class="heading-link" href="#gpt--3-and-capitalism-could-there-be-a-boom-followed-by-a-bust">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>We’ve noticed that politicians are lured by the enormous tax revenue generated by CEOs, as well as the popularity gained by paying their voters’ wages (UBI). Politicians believe Sam is no different from any other capitalist attempting to persuade the government to accept an oligarchy.
+Sam Altman suggested <strong>wealth taxation strategies</strong>, mentioning -</p>
+<blockquote>
+<p>“The American Equity Fund would be capitalised by taxing companies above a certain valuation 2.5% of their market value each year, payable in shares transferred to the fund, and by taxing 2.5% of the value of all privately-held land, payable in dollars.”</p>
+</blockquote>
+<p>To this, Daron Acemoglu, an economist at MIT and Richard Miller, founder of tech consultancy firm Miller-Klein Associates, told <strong>CNBC</strong> -</p>
+<blockquote>
+<p>“Altman’s post feels muddled and the model is unfettered capitalism.”
+“There is an incredible mistaken optimism of what AI is capable of doing.”</p>
+</blockquote>
+<h2 id="recipe-to-copilotarchitecture-of-gpt-3">
+  Recipe to Copilot:Architecture of GPT-3
+  <a class="heading-link" href="#recipe-to-copilotarchitecture-of-gpt-3">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>GitHub Copilot has been trained on billions of lines of publicly available code. While we amusingly explore the consequences, the processing behind it is ultimately based on GPT-3, so let’s see how it works.</p>
+<p><em>To understand the architecture of Transformer based Language Model better, I want you to follow the questions that lead to the following explanations</em> -</p>
+<h3 id="how-does-the-model-take-input-and-what-are-the-inputs-and-outputs-of-gpt">
+  How does the model take input and what are the inputs and outputs of GPT?
+  <a class="heading-link" href="#how-does-the-model-take-input-and-what-are-the-inputs-and-outputs-of-gpt">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><em>1. Defining Input and output</em></p>
+<figure><img src="/images/gpt-io.png"/>
+</figure>
+
+<blockquote>
+<p>Input sequence — get the next word.</p>
+</blockquote>
+<p><strong>Input</strong> - For GPT-3, the input is a sequence of 2048 words (a.k.a tokens).</p>
+<p><strong>Output</strong> - Once we give the input, we get the guess for the next word as the output.</p>
+<p>The GPT output is not just a single guess, it’s a sequence (length 2048) of guesses (a probability for each likely word). Keep repeating to get long generated texts.</p>
+<p><strong>Example</strong> -</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">Not all heroes wear capes -&gt; but
+Not all heroes wear capes but -&gt; all
+Not all heroes wear capes but all -&gt; villains
+Not all heroes wear capes but all villains -&gt; <span class="k">do</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="machine-does-not-understand-words-so-how-do-we-turn-words-into-vectors">
+  Machine does not understand words, so how do we turn words into vectors?
+  <a class="heading-link" href="#machine-does-not-understand-words-so-how-do-we-turn-words-into-vectors">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><strong>2. Byte Pair Encoding</strong></p>
+<p>GPT-3 uses byte-level Byte Pair Encoding (BPE) tokenization for efficiency. This indicates that the vocabulary’s “words” aren’t whole words, but rather groups of characters (for byte-level BPE, bytes) that appear frequently in text.</p>
+<ul>
+<li>Step 1: Keep a vocabulary of all words, which will allows us to give each word a value</li>
+<li>Step 2: Turn each word into a <strong>one-hot encoding vector</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>GPT has a vocabulary of 50257 words</strong>, we do this for every word in the sequence which results in a 2048 x 50257 matrix of ones and zeroes.</p>
+</blockquote>
+<h3 id="the-matrix-generated-is-mostly-filled-with-zeros-which-is-a-lot-of-wasted-space-how-will-we-solve-this">
+  The matrix generated is mostly filled with zeros, which is a lot of wasted space. How will we solve this?
+  <a class="heading-link" href="#the-matrix-generated-is-mostly-filled-with-zeros-which-is-a-lot-of-wasted-space-how-will-we-solve-this">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><strong>3. Embedding</strong></p>
+<p><em>GPT uses 12288 dimensions.</em></p>
+<p>Dimensions are basically properties(<strong>king/queen</strong>) of the data, hence for text embedding we must know exactly which word is meant to find relations between them according to the features(<strong>he/she</strong>) as shown in figure.
+Dimensions are basically properties(king/queen) of the data, hence for text embedding we must know exactly which word is meant to find relations between them according to the features(he/she) as shown in figure.
+This helps to store the information of the word’s meaning to a smaller dimensional space, by value for each property.
+This helps to store the information of the word’s meaning to a smaller dimensional space, by value for each property.</p>
+<figure><img src="/images/2d-embds.png"/><figcaption>
+            <h4>Vector representation of 2D embedding.</h4>
+        </figcaption>
+</figure>
+
+<blockquote>
+<p>We multiply the 2048 x 50257 sequence-encodings matrix with the 50257 x 12288 embedding-weights matrix (learned) and end up with a 2048 x 12288 sequence-embeddings matrix.</p>
+</blockquote>
+<h3 id="for-output-in-the-sequence-how-to-predict-which-input-word-to-focus-on-and-how-much">
+  For output in the sequence, how to predict which input word to focus on and how much?
+  <a class="heading-link" href="#for-output-in-the-sequence-how-to-predict-which-input-word-to-focus-on-and-how-much">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><strong>4. Attention</strong></p>
+<p><em>What attention does</em> -</p>
+<p>It maps a query and a set of key-value pairs to an output in the form of vectors. The output is computed as a weighted sum of the values.</p>
+<p><em>Multi-head attention in GPT</em> -</p>
+<p>GPT model presented by the authors, they use multi-head attention. Which means is that the attention process is repeated many times (96x in GPT-3), each with a different learned query, key, value projection weights.</p>
+<p><em>Sparse attention in GPT-3</em> -</p>
+<p>Transformers are powerful sequence models, it gets impractical to compute a single attention matrix, for very large inputs. hence in <strong>sparse attention patterns, each output position only computes weightings from a subset of input positions</strong>.</p>
+<p><em>It gives the following benefits</em> -</p>
+<p>It gives a lower loss than full attention, in addition to being significantly faster for the re-computation of attention matrices to save memory.</p>
+<blockquote>
+<p>Sparse attention is algorithmic improvement of the attention mechanism to extract patterns from sequences 30x longer than possible previously.</p>
+</blockquote>
+<p><strong>5. Feed Forward</strong></p>
+<p>Its a simple multi-layer-perceptron with 1 hidden layer</p>
+<figure><img src="/images/feedforward.png"/><figcaption>
+            <h4>Working of Feed Forward: It takes input, multiply with learned weights, add learned bias, applies to ReLU(activation function) and gets result.</h4>
+        </figcaption>
+</figure>
+
+<p><strong>6. Add &amp; Norm</strong></p>
+<p>After both the Multi-Head attention and the Feed Forward blocks, the input of the block is added to it’s output, and the result is normalized.</p>
+<h3 id="after-the-input-is-processed-into-a-huge-matrix-it-contains-information-about-the-next-predicted-word-how-do-we-extract-this-information">
+  After the input is processed into a huge matrix, it contains information about the next predicted word. How do we extract this information?
+  <a class="heading-link" href="#after-the-input-is-processed-into-a-huge-matrix-it-contains-information-about-the-next-predicted-word-how-do-we-extract-this-information">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><strong>7. Decoding</strong></p>
+<p>To obtain information, the mapping done in the embeddings section is reversed to transform our output 12288-vector embedding back into a 50257-word-encoding.</p>
+<p>After a quick <em>softmax</em>, we can then treat the resulting values as probabilities for each word.</p>
+<h2 id="github-copilot-recitation">
+  GitHub Copilot Recitation
+  <a class="heading-link" href="#github-copilot-recitation">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p><strong>The GitHub Copilot is a tool which is designed to work with a programmer rather than independently (i.e pair programmer). This is a huge achievement. Kudos to the
+GitHub Copilot team!</strong></p>
+<p>Copilot is going to be an indispensable part of the programmer tool belt similar to IDE autocomplete for many people.</p>
+<p>It guesses the exact code we want to write about one in ten times, and the rest of the time it suggests something <strong>rather good</strong>, or <strong>completely off</strong>. But when it guesses right, it feels like it’s reading our mind!</p>
+<figure><img src="/images/copilot.png"/><figcaption>
+            <h4>Working of the GitHub Copilot as a VS Code extension: The editor plugin sends comments and code to the GitHub Copilot service, then synthesises and offers ideas to the user using OpenAI Codex.</h4>
+        </figcaption>
+</figure>
+
+<h2 id="is-github-copilot-architecture-language-agnostic">
+  Is GitHub Copilot architecture, language agnostic?
+  <a class="heading-link" href="#is-github-copilot-architecture-language-agnostic">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>According to GitHub, Copilot <strong>supports a wide range of frameworks and languages</strong>, although as we see the technical preview, it is mainly focused with dynamic languages like <em>Python, JavaScript, TypeScript, Ruby, and Go</em>.</p>
+<p>It uses the <strong>same GPT-3 architecture for different languages</strong> as it was trained using huge corpus of GitHub’s public source codes as a data source for dataset, which contains multiple languages.</p>
+<figure><img src="/images/gpt3-lang.png"/><figcaption>
+            <h4>Representing bubble graph: GPT-3 was trained using multiple language datasets.</h4>
+        </figcaption>
+</figure>
+
+<p>This speciality can remove barriers to entry. It can help with learning new languages, and for folks working on polyglot codebases.</p>
+<h2 id="hands-on-demo-of-github-copilot-and-its-impact-on-domain-specific-edges">
+  Hands-on Demo of GitHub Copilot and it’s impact on domain specific edges
+  <a class="heading-link" href="#hands-on-demo-of-github-copilot-and-its-impact-on-domain-specific-edges">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="in-the-field-of-development">
+  In the field of development
+  <a class="heading-link" href="#in-the-field-of-development">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Github Copilot is really great for those developers who properly document and comment their code. According to me, this allow programmers to become more productive, which will increase demand for the skills.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/RDlJzdwkVnE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p><strong>1. API development Domain</strong></p>
+<ul>
+<li>It is capable of writing a Javscript code and It can also write codes for the development of complete API and Python scripts.</li>
+<li>It can be used to write different algorithms such as binary search, binary sort, merge sort, etc.</li>
+<li>It is useful in repetitive low signal to noise ratio languages like React or Java, but is less appealing if you’re writing code in Clojure environment.</li>
+</ul>
+<p>The best thing about Github Copilot here is that it automatically produces the best codes keeping in mind the Time Complexity.</p>
+<p><strong>2. Web Development Domain</strong></p>
+<ul>
+<li>Github Copilot does a pretty good job while predicting the <strong>React codes</strong>.</li>
+<li>When we tried to predict <strong>React+Typescript</strong> the Github Copilot was not able to perform efficient prediction, it went on to to predict the most common use case.</li>
+<li><strong>Redux</strong> requires a lot of Boilerplate functions. While trying Github Copilot on Redux, it often wasn’t sure about the relevancy. It doesn’t knows what is relevant and what is not.</li>
+</ul>
+<p><strong>3. App Development Domain</strong></p>
+<ul>
+<li>While working with flutter the basic boilerplates codes are easy to predict for Github Copilot.</li>
+<li>As the code starts to get complicated and we need to create API with a query and response, it fails to predict the complete code accurately.</li>
+</ul>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/qswDPjMUaR8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<ul>
+<li>Platforms such as Geeks For Geeks and LeetCode don’t have to spend time and capital in hiring people to write codes for teaching. This will result in more effecting teaching and learning for the freshers.</li>
+</ul>
+<p>According to the tests by Krish Naik to write a function to find the smallest five elements in an array sorted in an ascending order and the Github; Copilot took only 2 seconds to create the function.</p>
+<p><strong>4. Data Science for Machine Learning pipelines and Deep Learning</strong></p>
+<ul>
+<li>It is good at basic data preprocessing and exploratory data analysis.</li>
+<li>It is able to write a function for a basic neural network.</li>
+<li>It struggles to write the basic machine learning model code.</li>
+<li>There are multiple times when we pass the comment , it is not able to define a specific Machine Learning model.</li>
+<li>Every time we asked GitHub Copilot to write the code for basic machine learning, often it gave a basic code structure of what machine learning code should look like as an output.</li>
+</ul>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/m0OEHRA1Kfs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<ul>
+<li><strong>The Github Copilot isn’t as great for Data Science as it is for writing DSA and Python scripts</strong>. When it comes to writing codes which require some serious thinking like writing complicated deep neural networks then Github Copilot fails to stand up to the expectations.</li>
+</ul>
+<h2 id="opinions-on-most-trending-discussions">
+  Opinions on Most trending discussions
+  <a class="heading-link" href="#opinions-on-most-trending-discussions">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="drawbacks-observed">
+  Drawbacks observed
+  <a class="heading-link" href="#drawbacks-observed">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ul>
+<li>The code that Copilot suggests is <em><strong>not tested</strong></em>. The code will almost always fail to compile or run.</li>
+<li>The Github Copilot only stores a <em><strong>limited amount</strong></em> of context. Any source file longer than 100 lines is clipped, and the tool only looks at the context that comes before it. Hence, while writing long codes it will be really disappointing to expect <em><strong>continuous performance</strong></em> from the tool.</li>
+<li>GitHub Copilot has been trained on billions of lines of publicly available code, it is extremely accurate. As a result, the proposed code and the code that is informed by it may have a direct link.</li>
+</ul>
+<h2 id="further-thoughts-and-ideas">
+  Further thoughts and ideas
+  <a class="heading-link" href="#further-thoughts-and-ideas">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="generating-short-summary-at-the-end-of-generated-code-for-better-understanding">
+  Generating short summary at the end of generated code for better understanding
+  <a class="heading-link" href="#generating-short-summary-at-the-end-of-generated-code-for-better-understanding">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>Auto-code completion can make it difficult for novices to comprehend the code created by GitHub Copilot and for big codes written by AI, it takes more time to understand.</p>
+<p>I’m wondering whether we might make a modified version that creates a brief written summary at the conclusion of the generated code using sequence by sequence codes as input.</p>
+<h3 id="taking-input-functions-in-the-form-of-speech-for-easy-accessibility">
+  Taking input functions in the form of Speech for easy accessibility
+  <a class="heading-link" href="#taking-input-functions-in-the-form-of-speech-for-easy-accessibility">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>We can do this by performing the task of speech-to-text conversion using state-of-the-art ASR models such as Wav2Vec2.</p>
+<p>Although, prior to this step we will need to train the model on a large dataset which contains technical conversation about different programming languages and computer science related domains.</p>
+<figure><img src="/images/gpt3-king.jpg"/>
+</figure>
+
+<p><strong>Thank you readers for staying with me until the end; Did my blog motivated you to join the GitHub Copilot waiting list? Please let me know how it works out for you in the comments!</strong></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+    2021
+     Aastha Singh 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

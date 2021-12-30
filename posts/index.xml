@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on aasthasingh</title>
+    <link>https://aasthaengg.github.io/posts/</link>
+    <description>Recent content in Posts on aasthasingh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 05 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://aasthaengg.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Speed up the development with advanced pair programming: GitHub Copilot</title>
+      <link>https://aasthaengg.github.io/posts/github-copilot/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/posts/github-copilot/</guid>
+      <description>Speed up the development with advanced pair programming: GitHub Copilot     Something Microsoft couldn’t get their hands off of, and you probably won’t be able to either!
+ Hello technophiles, Welcome to my blog! Read along to know political, technical, and public understandings and viewpoints on the great magical AI algorithm launched this week.
+ “Anyone who puts in money at OpenAI can only expect returns 100 times their investment”</description>
+    </item>
+    
+    <item>
+      <title>Evolving with BERT: Introduction to RoBERTa</title>
+      <link>https://aasthaengg.github.io/posts/roberta/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/posts/roberta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Auto-code generation using GPT-2</title>
+      <link>https://aasthaengg.github.io/posts/code-gpt2/</link>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/posts/code-gpt2/</guid>
+      <description>Auto-code generation using GPT-2    About GPT-2     GPT-2 stands for “Generative Predictive Transformer”. It is an open-source model trained on an over 1.5 Billion parameters for generating the next sequence of text, for a give sequence.
+  The GPT-2 has a remarkable and amazing competence to generate texts, much beyond the expectations of conventional language models.
+ “Too dangerous to be released.”    A phrase published the press statement by OpenAI to accompany their announcement of the release of their GPT-2 language model in February 2019.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to NumPy</title>
+      <link>https://aasthaengg.github.io/posts/intro-numpy/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/posts/intro-numpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Key Feature extraction from classified summary of a Text file using BERT</title>
+      <link>https://aasthaengg.github.io/posts/text-summary/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/posts/text-summary/</guid>
+      <description>Harnessing the power of BERT embeddings    In this post, I’ll show you how BERT solves a basic text summarization and categorization issue.
+About BERT (Bidirectional Encoder Representations from Transformers)     BERT, in a nutshell, is a model that understands how to represent text. You feed it a sequence, and it scans left and right a number of times before producing a vector representation for each word as an output.</description>
+    </item>
+    
+    <item>
+      <title>YOLO: You Only Look Once</title>
+      <link>https://aasthaengg.github.io/posts/yolo/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://aasthaengg.github.io/posts/yolo/</guid>
+      <description>YOLO: You Only Look Once     The “You Only Look Once,” or YOLO, family of models are a series of end-to-end deep learning models designed for fast object detection, developed by Joseph Redmon, et al. and first described in the 2015 paper titled “You Only Look Once: Unified, Real-Time Object Detection.”
+ What is YOLO object detection?    YOLO is a deep learning based approach of object detection.</description>
+    </item>
+    
+  </channel>
+</rss>
