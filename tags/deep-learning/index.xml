@@ -24,7 +24,9 @@
       <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://aasthaengg.github.io/posts/roberta/</guid>
-      <description></description>
+      <description>Evolving with BERT: Introduction to RoBERTa     No matter how good it is, it can always get better, and that’s the exciting part.
+ In this article, I will discuss the &amp;ldquo;exciting part,&amp;rdquo; which was how the Facebook Research AI agency modified the training procedure of the existing Google BERT, proving to the world that there is always room to improve.
+Let’s look at the development of a robustly optimized method for pretraining natural language processing (NLP) systems(RoBERTa).</description>
     </item>
     
     <item>
