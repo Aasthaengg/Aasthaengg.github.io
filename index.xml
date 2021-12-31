@@ -57,7 +57,10 @@ Let’s look at the development of a robustly optimized method for pretraining n
       <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://aasthaengg.github.io/posts/intro-numpy/</guid>
-      <description></description>
+      <description>Introduction to NumPy    In a world without NumPy
+ NumPy is gold. In a world without a numeric library like Numpy, this age of Artificial Intelligence wouldn’t exist as we would not have been able to train Machine Learning algorithms.
+ Simple addition of two lists without NumPy -
+  You can anticipate that if we have a lot of data or a multi-dimensional value, we will require two or more layers of for loop, which will slow down computation.</description>
     </item>
     
     <item>

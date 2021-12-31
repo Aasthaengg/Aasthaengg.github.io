@@ -13,15 +13,24 @@
     
 
     <meta name="author" content="Aastha Singh">
-    <meta name="description" content="Aastha Singh&#39;s portfolio">
+    <meta name="description" content="Introduction to NumPy    In a world without NumPy
+ NumPy is gold. In a world without a numeric library like Numpy, this age of Artificial Intelligence wouldn’t exist as we would not have been able to train Machine Learning algorithms.
+ Simple addition of two lists without NumPy -
+  You can anticipate that if we have a lot of data or a multi-dimensional value, we will require two or more layers of for loop, which will slow down computation.">
     <meta name="keywords" content="blog,developer,personal">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Introduction to NumPy"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Introduction to NumPy    In a world without NumPy
+ NumPy is gold. In a world without a numeric library like Numpy, this age of Artificial Intelligence wouldn’t exist as we would not have been able to train Machine Learning algorithms.
+ Simple addition of two lists without NumPy -
+  You can anticipate that if we have a lot of data or a multi-dimensional value, we will require two or more layers of for loop, which will slow down computation."/>
 
     <meta property="og:title" content="Introduction to NumPy" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Introduction to NumPy    In a world without NumPy
+ NumPy is gold. In a world without a numeric library like Numpy, this age of Artificial Intelligence wouldn’t exist as we would not have been able to train Machine Learning algorithms.
+ Simple addition of two lists without NumPy -
+  You can anticipate that if we have a lot of data or a multi-dimensional value, we will require two or more layers of for loop, which will slow down computation." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://aasthaengg.github.io/posts/intro-numpy/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-05-31T00:00:00+00:00" />
@@ -149,7 +158,7 @@
             </span>
             <span class="reading-time">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
-              0-minute read
+              6-minute read
             </span>
           </div>
           
@@ -169,7 +178,287 @@
 
       <div>
         
-        
+        <h1 id="introduction-to-numpy">
+  Introduction to NumPy
+  <a class="heading-link" href="#introduction-to-numpy">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>In a world without NumPy</p>
+<blockquote>
+<p>NumPy is gold. In a world without a numeric library like Numpy, this age of Artificial Intelligence wouldn’t exist as we would not have been able to train Machine Learning algorithms.</p>
+</blockquote>
+<p><strong>Simple addition of two lists without NumPy -</strong></p>
+<figure><img src="/images/add.png"/>
+</figure>
+
+<blockquote>
+<p>You can anticipate that if we have a lot of data or a multi-dimensional value, we will require two or more layers of for loop, which will slow down computation.</p>
+</blockquote>
+<h2 id="about-numpy--see-the-light">
+  About NumPy — see the light!
+  <a class="heading-link" href="#about-numpy--see-the-light">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p><strong>NumPy deservedly bills itself as the fundamental package for scientific computing with Python.</strong></p>
+<figure><img src="/images/numpy-cover.jpg"/>
+</figure>
+
+<blockquote>
+<p>NumPy is a module for Python. The name is an acronym for “Numeric Python” or “Numerical Python”.</p>
+</blockquote>
+<p>NumPy is a merger of two Python modules, it is mostly written in C. <em>Numeric</em> is like NumPy, a Python module for high-performance, numeric computing. <em>Numarray</em>, is a complete rewrite of Numeric but is now deprecated.</p>
+<figure><img src="/images/numeric.png"/>
+</figure>
+
+<blockquote>
+<p>Jim Hugunin wrote Numeric (Numerical Python) in 1995 with help from a bunch of other people, and Travis Oliphant.</p>
+</blockquote>
+<blockquote>
+<p>In 2005, Travis Oliphant created NumPy by incorporating features of the competing Numarray into Numeric.</p>
+</blockquote>
+<h3 id="core-python-vs-numpy-with-python">
+  Core Python vs NumPy with Python
+  <a class="heading-link" href="#core-python-vs-numpy-with-python">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<blockquote>
+<p>Python was not originally intended for numerical computing. The demand for quick numeric calculation developed as individuals began to use Python for diverse tasks</p>
+</blockquote>
+<p>The advantages of Core Python:</p>
+<ul>
+<li>It has high-level number objects: integers, floating point</li>
+<li>containers: lists with cheap insertion and append methods, dictionaries with fast lookup.</li>
+</ul>
+<p>Advantages of using NumPy with Python:</p>
+<ul>
+<li>It does array oriented computing</li>
+<li>It efficiently implements multi-dimensional arrays</li>
+<li>It is designed for scientific computation</li>
+</ul>
+<h3 id="python-list-vs-python-array">
+  Python list vs Python array
+  <a class="heading-link" href="#python-list-vs-python-array">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>A list in Python is a collection of items which can contain elements of multiple data types, which may be either numeric, character logical values, etc.</p>
+<ul>
+<li>It cannot directly handle arithmetic operations.</li>
+<li>It’s flexibility allows easy modification (addition, deletion) of data.</li>
+<li>The entire list can be printed without any explicit looping.</li>
+</ul>
+<figure><img src="/images/python-array.png"/>
+</figure>
+
+<p>An array is a vector containing homogeneous elements allocated with contiguous memory locations allowing easy modification.</p>
+<ul>
+<li>Can directly handle arithmetic operations.</li>
+<li>Less flexibility since addition, deletion has to be done element wise.</li>
+<li>A loop has to be formed to print or access the components of array.</li>
+</ul>
+<figure><img src="/images/array.png"/>
+</figure>
+
+<h3 id="built-in-array-vs-numpy-array">
+  Built-in array vs NumPy array
+  <a class="heading-link" href="#built-in-array-vs-numpy-array">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<blockquote>
+<p><em><strong>Built-in array : The objects stored in the array are of a same type and is determined by typecode. Type codes are single characters.</strong></em></p>
+</blockquote>
+<figure><img src="/images/builtin.png"/>
+</figure>
+
+<ul>
+<li>Built-in array module does not typecast data implicitly (example : if here we provide a float input, it will give us a TypeError as it from float to int)</li>
+</ul>
+<figure><img src="/images/typecast.png"/><figcaption>
+            <h4>Typecode ‘i’ indicates , objects stored in the array must be of ‘int’ type. Trying to store floating-point value, caused a TypeError.</h4>
+        </figcaption>
+</figure>
+
+<blockquote>
+<p><em><strong>NumPy array: NumPy module in python is generally used for matrix and array computations.</strong></em></p>
+<p><em><strong>Using the NumPy module, built-in function ‘array’ is used to create an array.</strong></em></p>
+</blockquote>
+<ul>
+<li>NumPy array is flexible in the matter of typecasting, it will upcast or downcast and try to store the data at any cost. (Float was converted to int, even if that resulted in loss of data after decimal)</li>
+</ul>
+<figure><img src="/images/np-typecast.png"/><figcaption>
+            <h4>Here floating point data was typecasted into int</h4>
+        </figcaption>
+</figure>
+
+<h3 id="python-list-vs-numpy-array---since-2005">
+  Python list vs NumPy array - since 2005
+  <a class="heading-link" href="#python-list-vs-numpy-array---since-2005">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<figure><img src="/images/np-meme.jpeg"/>
+</figure>
+
+<ul>
+<li>The Python core library provided <strong>Lists</strong>. A list is a collection of data type that can be of homogeneous or heterogeneous.</li>
+</ul>
+<figure><img src="/images/lists.png"/>
+</figure>
+
+<ul>
+<li>NumPy array is a grid of orderly allocated values of the homogeneous data types. Element wise operation is possible.</li>
+</ul>
+<figure><img src="/images/np-array.png"/>
+</figure>
+
+<h3 id="if-you-want-to-get-ahead-get-a-speed-of-numpy">
+  If You Want To Get Ahead, Get a Speed of NumPy!
+  <a class="heading-link" href="#if-you-want-to-get-ahead-get-a-speed-of-numpy">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>How fast is Numpy?</p>
+<figure><img src="/images/np-speed.png"/><figcaption>
+            <h4>Numpy array performs 5 times faster than Python List for Scalar Addition</h4>
+        </figcaption>
+</figure>
+
+<figure><img src="/images/np-speed2.png"/>
+</figure>
+
+<p>Why is it so fast?</p>
+<ol>
+<li>
+<p>Memory Consumption</p>
+<p>Numpy arrays store one defined type of data as one contiguous block of memory.</p>
+<figure><img src="/images/np-mem-1.jpeg"/><figcaption>
+            <h4>Array in RAM</h4>
+        </figcaption>
+</figure>
+
+<p>With the array’s initial memory address known, we can simply add the index to jump to any element.</p>
+<p><strong>Python lists are actually arrays of pointers. A pointer is a reference to an object in memory.</strong></p>
+<figure><img src="/images/np-mem-2.jpeg"/><figcaption>
+            <h4>List’s memory allocation</h4>
+        </figcaption>
+</figure>
+
+<p>Python takes two steps when retrieving the first entry in your list which decreases performance: Obtain the pointer first. Second, go to the pointer’s memory address to retrieve the object.</p>
+<figure><img src="/images/np-mem-3.png"/>
+</figure>
+
+</li>
+<li>
+<p>Computation process</p>
+<ul>
+<li>
+<p>Numpy is able to divide a task into multiple subtasks and process them.</p>
+</li>
+<li>
+<p>NumPy combines C, C++, and Fortran code. In comparison to Python, these programming languages have an extremely short execution time.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="why-does-speed-matter">
+  Why does speed matter?
+  <a class="heading-link" href="#why-does-speed-matter">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>The small differences in runtime become amplified with repeated function calls, which cumulates to a large inference time hence slower computation.</p>
+<ul>
+<li>
+<p>We understand now that Loops slow our code! So, let’s write a code that takes two arrays and performs element-wise multiplication.</p>
+</li>
+<li>
+<p>if we are using NumPy arrays, we do not need to write a loop. We can simply do this like shown below.</p>
+</li>
+</ul>
+<figure><img src="/images/np-mul.png"/><figcaption>
+            <h4>Preparing multiplication of lists and the NumPy arrays</h4>
+        </figcaption>
+</figure>
+
+<ul>
+<li>When using the NumPy’s solution, there are significant speedups of nearly 20–30 times.</li>
+</ul>
+<figure><img src="/images/np-mul-speed.png"/><figcaption>
+            <h4>It took 79 μs for a loop to multiply list, whereas 3.4 μs to multiply NumPy array</h4>
+        </figcaption>
+</figure>
+
+<blockquote>
+<p><em><strong>Limitation of vectorization</strong></em> - <em>It can be only be done on a loop which performs operations on two arrays of equal size or between an array and a scalar.</em></p>
+</blockquote>
+<h3 id="what-happens-if-we-want-to-vectorize-a-loop-that-involves-arrays-of-different-sizes">
+  What happens if we want to vectorize a loop that involves arrays of different sizes?
+  <a class="heading-link" href="#what-happens-if-we-want-to-vectorize-a-loop-that-involves-arrays-of-different-sizes">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><strong>Method 1</strong>: To loop over the columns of matrix, and add each columns.</p>
+<figure><img src="/images/vec-1.png"/><figcaption>
+            <h4>Addition matrix of shape (3,4) and column vector</h4>
+        </figcaption>
+</figure>
+
+<p><strong>Drawback</strong>: Since we are looping, the code described above will execute slowly if the number of columns in the original array gets increased to a large number.</p>
+<p><strong>Method 2</strong>: Make a matrix of the same number of columns as the original array.</p>
+<figure><img src="/images/vec-2.png"/>
+</figure>
+
+<p>This gives us a much faster solution. This important NumPy abstraction is called <strong>Broadcasting</strong>.</p>
+<blockquote>
+<p><em>“Subject to certain constraints, the smaller array is “broadcast” across the larger array so that they have compatible shapes. Broadcasting provides a means of vectorizing array operations so that looping occurs in C instead of Python”</em></p>
+</blockquote>
+<h3 id="numpy-to-its-full-capacity">
+  NumPy to its full capacity!
+  <a class="heading-link" href="#numpy-to-its-full-capacity">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p><strong>This blog will now also show you how to utilise NumPy to its best potential by exhibiting how to use Vectorization and Broadcasting.</strong></p>
+<p>Understanding Rules for Broadcasting</p>
+<p>NumPy’s <strong>broadcasting rule relaxes this constraint when the arrays’ shapes meet certain constraints</strong>.</p>
+<figure><img src="/images/vec-3.png"/><figcaption>
+            <h4>Addition matrix of shape (3,4) and column vector</h4>
+        </figcaption>
+</figure>
+
+<p>For just two arrays, NumPy compares the shape of the two arrays dimension-by-dimension starting from the trailing dimensions of the arrays working it’s way forward. (from right to left)</p>
+<p>Two dimensions are compatible when:</p>
+<ul>
+<li>Dimensions are equal</li>
+<li>One of them is 1</li>
+</ul>
+<figure><img src="/images/dim-1.png"/><figcaption>
+            <h4>Equal Ranks and equal values</h4>
+        </figcaption>
+</figure>
+
+<p>In case of example on the right, starting from left, when we arrive at the 2nd dimension, there’s a difference and neither of them is 1. Therefore, trying to do an operation with them leads to an error.</p>
+<figure><img src="/images/dim-2.png"/><figcaption>
+            <h4>Unequal ranks</h4>
+        </figcaption>
+</figure>
+
+<p>In order to compare two such arrays, Numpy appends dimensions of size 1 to the smaller array so that it has a rank equal to the larger array to make it compatible.</p>
+<h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>Woo Hoo! Congrats for making it all the way to the end of this blog.
+Thank you very much for taking the time to read this. Despite the fact that it was only a tooth in NumPy’s gear wheel, I hope it was useful in getting you up and going.</p>
+<p>Did you like NumPy’s superpowers? Please let me know in the comments section where all thoughts and insights are eagerly appreciated.</p>
+<p>Stay tuned for the next blog in which we will continue exploring and learning NumPy by delving deeper into its features such as broadcasting, vectorization, indexing, ufunc and Numba as well as how they help in real world scenarios.</p>
+
       </div>
 
 
